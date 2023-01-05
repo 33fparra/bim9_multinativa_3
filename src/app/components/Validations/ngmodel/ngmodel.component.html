@@ -1,0 +1,21 @@
+<div>
+    <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+        <table>
+            <tr>
+                <td>Fullname</td>
+                <td><input type="text" name="fullname" #fullname="ngModel" [(ngModel)]="user.fullname" required pattern="[a-zA-Z]+"/></td>
+                <small *ngIf="!fullname.valid && fullname.touched">Fullname invalid</small>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td><input type="text" name="email" #email="ngModel" [(ngModel)]="user.email" required pattern="[a-zA-Z]+"/></td>
+                <small *ngIf="!email.valid && email.touched">Email invalid</small>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Validate with ngModel" [disabled]="userForm.invalid"/></td>
+            </tr>
+        </table>
+    </form>
+    {{user.fullname}}
+    {{user.email}}
+</div>

@@ -1,0 +1,11 @@
+<div>
+    <form #searchForm="ngForm" (ngSubmit)="onSearch()">
+        <table>
+            <tr>
+                <td>Buscar</td>
+                <td><input type="text" name="buscar" [(ngModel)]="buscarField"/></td>
+                <td><input type="submit" name="submit" value="Buscar"/></td>
+            </tr>
+        </table>
+    </form>
+</div>

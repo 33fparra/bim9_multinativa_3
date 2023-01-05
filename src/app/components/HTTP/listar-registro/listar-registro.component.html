@@ -1,0 +1,39 @@
+<div>
+    <h2 *ngIf="!pacientes">Loading</h2>
+</div>
+
+<div *ngIf="pacientes">
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>RUT</th>
+                <th>NOMBRE</th>
+                <th>EDAD</th>
+                <th>SEXO</th>
+                <th>FOTO</th>
+                <th>FECHA</th>
+                <th>ENFERMEDAD</th>
+                <th>REVISADO</th>
+                <th>Admin options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let paciente of pacientes">
+
+                <td>{{paciente.rut}}</td>
+                <td>{{paciente.nombre}}</td>
+                <td>{{paciente.edad}}</td>
+                <td>{{paciente.sexo}}</td>
+                <div *ngIf="paciente.fotoPersonal; then exists else default"></div>
+                <ng-template #exists><td><img src="{{this.url+'/registro/photo/'+paciente.fotoPersonal}}"  height="100px"/></td></ng-template>
+                <ng-template #default><td><img src={{this.imgDefault}} width="100px" height="100px"/></td></ng-template>
+                <td>{{paciente.fechaIngreso}}</td>
+                <td>{{paciente.enfermedad}}</td>
+                <td>{{paciente.revisado}}</td>
+
+                            
+                <td><a [routerLink]="['/registro/detalle/'+ paciente._id]">See in detail</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

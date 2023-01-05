@@ -1,0 +1,124 @@
+IN GENERAL: ordenar la estructura de los archivos de material de estudio
+
+@INPUT
+-   constructor (){}
+
+-   constructor (){this.inputField = '' //initialize with the type, ex: this.number = 0}
+
+@OUTPUT
+-   In Son component:
+    -   sendMethod(event, data){
+            this.eventEmitter.emit({
+                data: data
+            })
+        }
+    -   <button (click)="send($event, data)">Send oe ziii</button>
+
+    -   sendMethod(e:any, data:any){
+            this.eventEmitter.emit({
+                data: data
+            })
+        }
+    -   <button (click)="send($event, this.data)">Send oe ziii</button>
+
+-   In Father component:
+    -   show(event){
+            this.data_output = event.data
+        }
+
+    -   show(event){
+            //info is the data that the son sends to the father
+            this.data_output = event.data.info
+        }
+
+ROUTING
+-   In app.routing.ts
+    -   export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes)
+
+    -   export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes)
+
+HTTP (SERVICE)
+-   POST
+    -   createUser(user):Observable<any>{}
+    
+    -   createUser(user:any):Observable<any>{}
+
+-   PUT
+    -   updateUserById(id, user):Observable<any>{}
+
+    -   updateUserById(id:string, user:any):Observable<any>{}
+
+-   DELETE
+    -   deleteUserById(id):Observable<any>{}
+
+    -   deleteUserById(id:string):Observable<any>{}
+
+-   GET
+    -   getUser(id):Observable<any>{}
+    -   searchUserByField(search):Observable<any>{}
+
+    -   getUser(id:any):Observable<any>{}
+    -   searchUserByField(search:any):Observable<any>{}
+
+HTTP (MODULES FOR GUI)
+-   NEW USER/UPDATE USER
+    -   afuConfig = {
+            multiple: true,
+            formatsAllowed: ".xls, .docx, .jpg, .pdf, .txt",
+            maxSize: "100",
+            uploadAPI: {
+                url: '10.82.1.33:3901/api/upload-files'
+            },
+            theme: "attachPin",
+            hideProgressBar: true,
+            hideResetBtn: true,
+            hideSelectBtn: false,
+            replaceTexts: {
+                selectFileBtn: 'Select Files',
+                resetBtn: 'Reset',
+                uploadBtn: 'Upload',
+                dragNDropBox: 'Drag N Drop',
+                attachPinBtn: 'Adjuntar archivo',
+                afterUploadMsg_success: 'Successfully Uploaded !',
+                afterUploadMsg_error: 'Upload Failed !'
+            }
+        };
+    -   subirImagen(data) {
+            let imagen_data = JSON.parse(data.response);
+            this.producto.imagen = imagen_data.imagen;
+        }
+
+
+    -   afuConfig = {
+            multiple: false,
+            formatsAllowed: ".jpg,.png,.gif,.jpeg",
+            maxSize: 100,
+            uploadAPI:  {
+                url: Global.API+ '/user/photo'
+            },
+            theme: "attachPin",
+            hideProgressBar: true,
+            hideResetBtn: true,
+            hideSelectBtn: false,
+            fileNameIndex: false,
+            attachPinText: 'Upload file'
+        };
+    -   uploadFile(data:any){
+            let file = data.body.tempFilename
+            this.user.photo = file
+        }
+
+-   LIST 
+    -   @Input() users = User[]
+    -   <div *ngIf="!productos && productos.length==0">
+            <h2>No hay productos para mostrar.</h2>
+        </div>
+
+    -   @Input() users : User[] = []
+    -   <div *ngIf="!productos">
+            <h2>No hay productos para mostrar.</h2>
+        </div>
+
+
+
+

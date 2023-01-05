@@ -1,0 +1,87 @@
+<div>
+    <form #registroForm="ngForm" (ngSubmit)="onSubmit()">
+        <table>
+            <tr>
+                <!-- <td>Fullname</td>
+                <td><input type="text" name="fullname" #fullname="ngModel" [(ngModel)]="user.fullname" required/></td>
+                <small *ngIf="!fullname.valid && fullname.touched">Fullname is neccessary</small>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" #email="ngModel" [(ngModel)]="user.email" required/></td>
+                <small *ngIf="!email.valid && email.touched">Fullname is neccessary</small>
+            </tr>
+            <tr>
+                <td>Created at</td>
+                <td><p>{{user.createdAt}}</p></td>
+            </tr>
+            <tr>
+                <td>Active</td>
+                <td><p>{{user.active}}</p></td>
+            </tr>
+            <tr *ngIf="update">
+                <td><img src="{{this.url+'/user/photo/'+user.photo}}" *ngIf="user.photo"  height="100px"/></td>
+                <td><img src="{{this.imgDefault}}" *ngIf="!user.photo" width="100px" height="100px"/></td>
+            </tr>
+            <tr>
+                <td>Photo</td>
+                <td><angular-file-uploader [config]="afuConfig" (ApiResponse)="uploadFile($event)"></angular-file-uploader></td>
+            </tr> -->
+
+
+            <tr>
+                <td>RUT</td>
+                <td><input type="text" name="rut" #rut="ngModel" [(ngModel)]="paciente.rut" required/></td>
+                <small *ngIf="!rut.valid && rut.touched">Rut es obligatorio</small>
+            </tr>
+
+            <tr>
+                <td>NOMBRE</td>
+                <td><input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="paciente.nombre" required/></td>
+                <small *ngIf="!nombre.valid && nombre.touched">Nombre es obligatorio</small>
+            </tr>
+
+            <tr>
+                <td>EDAD</td>
+                <td><input type="text" name="edad" #edad="ngModel" [(ngModel)]="paciente.edad" required/></td>
+                <small *ngIf="!edad.valid && edad.touched">Edad es Obligatoria</small>
+            </tr>
+
+            <tr>
+                <td>SEXO</td>
+                <td><input type="text" name="sexo" #sexo="ngModel" [(ngModel)]="paciente.sexo" required/></td>
+                <small *ngIf="!sexo.valid && sexo.touched">Fullname is neccessary</small>
+            </tr>
+
+            <tr *ngIf="update">
+                <td><img src="{{this.url+'/registro/photo/'+paciente.fotoPersonal}}" *ngIf="paciente.fotoPersonal"  height="100px"/></td>
+                <td><img src="{{this.imgDefault}}" *ngIf="!paciente.fotoPersonal" width="100px" height="100px"/></td>
+            </tr>
+            <tr>
+                <td>Photo</td>
+                <td><angular-file-uploader [config]="afuConfig" (ApiResponse)="uploadFile($event)"></angular-file-uploader></td>
+            </tr>
+
+
+
+            <tr>
+                <td>Enfermedad</td>
+                <td><input type="text" name="enfermedad" #enfermedad="ngModel" [(ngModel)]="paciente.enfermedad" required/></td>
+                <small *ngIf="!enfermedad.valid && enfermedad.touched">Enfermedad</small>
+            </tr>
+
+            <tr>
+                <td>FECHA</td>
+                <td><p>{{paciente.fechaIngreso}}</p></td>
+            </tr>
+            <tr>
+                <td>REVISADO</td>
+                <td><p>{{paciente.revisado}}</p></td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="Save" [disabled]="registroForm.invalid"/></td>
+            </tr>
+        </table>
+    </form>
+</div>

@@ -1,0 +1,44 @@
+<div>
+    <table *ngIf="paciente">
+        <tr>
+            <td>ID</td>
+            <td>{{paciente._id}}</td>
+        </tr>
+        <tr>
+            <td>RUT</td>
+            <td>{{paciente.rut}}</td>
+        </tr>
+        <tr>
+            <td>NOMBRE</td>
+            <td>{{paciente.nombre}}</td>
+        </tr>
+        <tr>
+            <td>SEXO</td>
+            <td>{{paciente.sexo}}</td>
+        </tr>
+        <tr>
+            <td>Account state</td>
+            <div *ngIf="paciente.revisado; then active else inactive"></div>
+            <ng-template #active><td>active</td></ng-template>
+            <ng-template #inactive><td>inactive</td></ng-template>
+        </tr>
+        <tr>
+            <td><img src="{{this.url+'/paciente/photo/'+paciente.fotoPersonal}}" *ngIf="paciente.fotoPersonal"  height="100px"/></td>
+            <td><img src="{{this.imgDefault}}" *ngIf="!paciente.fotoPersonal" width="100px" height="100px"/></td>
+        </tr>
+        <tr>
+            <td>FECHA INGRESO</td>
+            <td>{{paciente.fechaIngreso}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{paciente.revisado}}</td>
+        </tr>
+
+
+        <tr>
+            <td><a [routerLink]="['/registro/actualizar/', paciente._id]">Update</a></td>
+            <td><a (click)="deleteUserById(paciente._id)">Delete</a></td>
+        </tr>
+    </table>
+</div>

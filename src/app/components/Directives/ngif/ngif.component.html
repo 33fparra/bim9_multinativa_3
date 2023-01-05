@@ -1,0 +1,4 @@
+<div *ngIf="edad >= 0 && edad <= 17; then menor else mayor"></div>
+<ng-template #menor>{{menorK}}</ng-template>
+<ng-template #mayor>{{mayorK}}</ng-template>
+
