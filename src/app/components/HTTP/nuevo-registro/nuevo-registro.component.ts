@@ -25,7 +25,7 @@ export class NuevoRegistroComponent implements OnInit {
 
     private regServ: RegistroService
   ) {
-    this.paciente = new Paciente('', '', '', '', 0, '', '', '', false);
+    this.paciente = new Paciente();
     this.header = 'New Registro';
     this.status = '';
   }
@@ -48,6 +48,7 @@ export class NuevoRegistroComponent implements OnInit {
   };
 
   onSubmit() {
+    // this.paciente.fechaIngreso = Date.now();
     this.regServ.createUser(this.paciente).subscribe(
       (res) => {
         if (res.status == 'success') {

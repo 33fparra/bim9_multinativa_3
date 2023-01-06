@@ -23,7 +23,7 @@ export class DetalleRegistroComponent implements OnInit {
     private regServ:RegistroService
   ) { 
     this.url = Global.API
-    this.paciente = new Paciente('','','','','', false)
+    this.paciente = new Paciente()
   }
 
   ngOnInit(): void {

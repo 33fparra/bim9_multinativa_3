@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Paciente } from '../../Class/paciente';
 import { RegistroService } from '../registro.service';
-
-
 
 @Component({
   selector: 'app-busqueda-registro',
@@ -33,6 +31,7 @@ export class BusquedaRegistroComponent implements OnInit {
       this.search = search
 
       this.regServ.searchUserByField(search).subscribe(res=>{
+        console.log(res)
         if(res.paciente){
           this.pacientes=res.paciente
         }else{

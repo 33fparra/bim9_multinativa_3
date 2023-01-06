@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Paciente } from '../../Class/paciente';
 import { Global } from '../global';
+
 
 
 @Component({

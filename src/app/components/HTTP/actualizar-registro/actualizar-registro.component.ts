@@ -43,7 +43,7 @@ export class ActualizarRegistroComponent implements OnInit {
   ) { 
     //aca debo Consultar como colocar
 
-    this.paciente = new Paciente('','','','','', false)
+    this.paciente = new Paciente()
     this.update= true
     this.url = Global.API
     this.status = ''
