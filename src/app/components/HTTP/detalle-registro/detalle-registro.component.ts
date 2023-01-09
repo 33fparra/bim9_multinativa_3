@@ -45,7 +45,7 @@ export class DetalleRegistroComponent implements OnInit {
     })
   }
 
-  deleteUserById(id:string){
+  deleteUserById(id:any){
     this.regServ.deleteUserById(id).subscribe(res=>{
       this.router.navigate(['/listar'])
     }, error=>{

@@ -15,19 +15,7 @@ import { NuevoRegistroComponent } from "./components/HTTP/nuevo-registro/nuevo-r
 import { BusquedaRegistroComponent } from './components/HTTP/busqueda-registro/busqueda-registro.component';
 import { BuscarRegistroComponent } from './components/HTTP/buscar-registro/buscar-registro.component';
 import { ActualizarRegistroComponent } from './components/HTTP/actualizar-registro/actualizar-registro.component';
-
-
-
-// const appRoutes: Routes = [
-//     {path: '', component: HomeComponent},
-//     {path: 'home', component: HomeComponent},
-//     {path: 'user/new', component: NewUserComponent},
-//     {path: 'user/update/:id', component: UpdateUserComponent},
-//     {path: 'user/detail/:id', component: DetailUserComponent},
-//     {path: 'user/users', component: ListUsersComponent},
-//     {path: 'user/search/:search', component: SearcherUsersComponent},
-//     {path: '**', component: ErrorComponent},
-// ]
+import { ListarRegistroComponent } from './components/HTTP/listar-registro/listar-registro.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -35,11 +23,9 @@ const appRoutes: Routes = [
     {path: 'registro/nuevo', component: NuevoRegistroComponent},
     {path: 'registro/actualizar/:id', component: ActualizarRegistroComponent},
     {path: 'registro/detalle/:id', component: DetalleRegistroComponent},
-
-
     {path: 'registro/buscar', component: BuscarRegistroComponent},
     {path: 'registro/busqueda/:search', component: BusquedaRegistroComponent},
-    {path: 'registro/listar', component: ListarRegistrosComponent},
+    {path: 'resgitro/listar', component: ListarRegistroComponent},
     {path: 'registro/listar-todos', component: ListarRegistrosComponent},
 
 

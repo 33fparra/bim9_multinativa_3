@@ -67,7 +67,8 @@ export class ActualizarRegistroComponent implements OnInit {
   }
 
   onSubmit(){
-    this.regServ.updateUserById(this.paciente._id, this.paciente).subscribe(res=>{
+    
+    this.regServ.updateUserById(this.paciente._id!, this.paciente).subscribe(res=>{
       if(res.status == 'success'){
         this.status = 'success'
         this.paciente = res.paciente
